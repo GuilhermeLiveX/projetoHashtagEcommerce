@@ -12,13 +12,21 @@ function fecharCarrinho() {
     document.getElementById("carrinho").classList.add("right-[-360px]");
 }
 
+function irParaCheckout() {
+    if (Object.keys(idsProdutoCarrinhoComQuantidade).length === 0) {
+        return;
+    }
+    window.location.href = window.location.origin + "/checkout.html";
+}
 
 export function iniciarCarrinho() {
     const botaoFecharCarrinho = document.getElementById("fechar-carrinho");
     const botaoAbrirCarrinho = document.getElementById("abrir-carrinho");
+    const botaoIrParaCheckout = document.getElementById("finalizar-compra");
 
     botaoFecharCarrinho.addEventListener("click", fecharCarrinho);
     botaoAbrirCarrinho.addEventListener("click", abrirCarrinho);
+    botaoIrParaCheckout.addEventListener("click", irParaCheckout);
 }
 
 function removerProdutoDoCarrinho(idProduto) {

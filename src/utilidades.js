@@ -73,13 +73,17 @@ export function lerLocalStorage(chave) {
     return JSON.parse(localStorage.getItem(chave));
 }
 
+export function apagarDoLocalStorage(chave) {
+    localStorage.removeItem(chave);
+}
+
 export function desenharProdutosCarrinhoSimples(idProduto, idContainerHtml, quantidadeProduto) {
 
     const produto = catalogo.find((p) => p.id === idProduto);
     const containerProdutoCarrinho = document.getElementById(idContainerHtml);
     
     const elementoArticle = document.createElement("article");
-    const articleClasses = ["flex", "bg-stone-200", "rounded-lg", "p-1", "relative", "mb-2"];
+    const articleClasses = ["flex", "bg-stone-200", "rounded-lg", "p-1", "relative", "mb-2", "w-96"];
     
     for (const articleClass of articleClasses) {
         elementoArticle.classList.add(articleClass);
